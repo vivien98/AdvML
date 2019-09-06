@@ -1,0 +1,156 @@
+
+_____________________________________________________________________For CNN______________________________________________________________________
+
+_____________For 2 classes, 50% weights :
+numClasses = 2
+eta = 0.001
+sizeLayer1 = 10     
+sizeLayer2 = 5	
+sizeLayer3 = 15
+featLayer1 = 20
+featLayer2 = 70
+	Out -
+	number of weights : 108230
+	batch 0 - 49.799999594688416
+	batch 100 - 80.25000095367432
+	batch 200 - 76.95000171661377
+	batch 300 - 82.59999752044678
+	batch 0 - 84.95000004768372
+	batch 100 - 85.50000190734863
+	batch 200 - 84.79999899864197
+	batch 300 - 86.50000095367432
+	batch 0 - 85.54999828338623
+	batch 0 - 83.79999995231628
+	batch 0 - 83.95000100135803
+	Final accuracy - 0.8565
+
+______________For 5 classes, 50% weights :
+eta = 0.005#0.001
+sizeLayer1 = 10     
+sizeLayer2 = 5	
+sizeLayer3 = 25
+featLayer1 = 20#20
+featLayer2 = 70#70
+
+	number of weights : 153125
+	batch 0 - 18.60000044107437
+	batch 100 - 27.300000190734863
+	batch 200 - 39.70000147819519
+	batch 300 - 40.79999923706055
+	batch 400 - 41.80000126361847
+	batch 500 - 43.20000112056732
+	batch 600 - 43.59999895095825
+	batch 700 - 48.19999933242798
+	batch 800 - 50.300002098083496
+	batch 900 - 52.20000147819519
+	batch 0 - 50.90000033378601
+	batch 100 - 50.40000081062317
+	batch 200 - 45.500001311302185
+	batch 300 - 47.49999940395355
+	batch 400 - 52.799999713897705
+	batch 500 - 52.20000147819519
+	batch 0 - 52.799999713897705
+	Final accuracy - 0.5372
+
+_____________For 2 classes 25% weights :
+eta = 0.005
+sizeLayer1 = 10     
+sizeLayer2 = 5	
+sizeLayer3 = 10
+featLayer1 = 15
+featLayer2 = 50
+
+	number of weights : 55270
+	batch 0 - 49.799999594688416
+	batch 100 - 75.3000020980835
+	batch 200 - 75.70000290870667
+	batch 300 - 76.30000114440918
+	batch 0 - 78.29999923706055
+	batch 100 - 80.29999732971191
+	batch 200 - 81.99999928474426
+	batch 300 - 80.9000015258789
+	batch 0 - 82.99999833106995
+	batch 100 - 83.89999866485596
+	batch 0 - 83.79999995231628
+	Final accuracy - 0.8555
+
+
+
+___________________________________________________________For ANN_________________________________________________________________________________
+
+___________________For 2 classes :
+lay1 = 3072
+lay2 = 70
+lay3 = 50
+
+batchSize = 5
+eta = 0.01
+
+	Number of weights - 218640
+	Epoch 0
+	validation accuracy 77.55
+	Epoch 1
+	validation accuracy 80.6
+	Epoch 2
+	validation accuracy 81.95
+	Epoch 3
+	validation accuracy 83.6
+	Epoch 4
+	validation accuracy 84.15
+	Epoch 5
+	validation accuracy 84.1
+	Epoch 6
+	validation accuracy 84.35
+	Epoch 7
+	validation accuracy 84.6
+	final accuracy 86.85
+
+
+__________________For 5 classes:
+lay1 = 3072
+lay2 = 70
+lay3 = 50
+
+batchSize = 5
+eta = 0.01
+
+	Number of weights - 218640
+	Epoch 0
+	validation accuracy 35.32
+	Epoch 1
+	validation accuracy 45.4
+	Epoch 2
+	validation accuracy 49.48
+	Epoch 3
+	validation accuracy 51.46
+	Epoch 4
+	validation accuracy 54.06
+	Epoch 5
+	validation accuracy 55.68
+	Epoch 6
+	validation accuracy 56.78
+	Epoch 7
+	validation accuracy 56.38
+	Epoch 8
+	validation accuracy 57.3
+	Epoch 9
+	validation accuracy 57.78
+	Epoch 10
+	validation accuracy 58.5
+	Epoch 11
+	validation accuracy 58.66
+	Epoch 12
+	validation accuracy 59.84
+	Epoch 13
+	validation accuracy 60.26
+	Epoch 14
+	validation accuracy 60.36
+	Epoch 15
+	validation accuracy 60.0
+	Epoch 16
+	validation accuracy 60.44
+	Epoch 17
+	validation accuracy 60.44
+	Epoch 18
+	validation accuracy 60.66
+	final accuracy 61.22
