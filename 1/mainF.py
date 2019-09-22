@@ -11,13 +11,13 @@ from layers import softMax
 from layers import crossEntropy
 from layers import fcNeuralNet
 
-trainingSeries = np.load("../../cifar-10-batches-py/trainingSeries.npy")	# All training data is loaded into this array (format is : trainingSeries[label number(0 to 9) , image number (0 to 4999), pixel number (0 to 3071)])
-testSeries = np.load("../../cifar-10-batches-py/testSeries.npy")	# All testing data is loaded into this array (same format as training data)
+trainingSeries = np.load("trainingSeries.npy")	# All training data is loaded into this array (format is : trainingSeries[label number(0 to 9) , image number (0 to 4999), pixel number (0 to 3071)])
+testSeries = np.load("testSeries.npy")	# All testing data is loaded into this array (same format as training data)
 
 trainingSize = 4000	# Number of datapoints per label used in one epoch for training (out of 5000)
 validSize = 1000	# Number of datapoints per label used in one epoch for validation (out of 5000)
 testSize = 1000		# Number of datapoints per label used in one epoch for testing (out of 1000)
-numClasses = 5		# Number of classes to be trained over in CIFAR (out of 10)
+numClasses = 5	# Number of classes to be trained over in CIFAR (out of 10)
 
 lay1 = 3072			# Number of neurons in input layer
 lay2 = 70			# Number of neurons in first hidden layer

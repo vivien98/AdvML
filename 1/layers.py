@@ -79,7 +79,7 @@ class softMax: 			#Softmax layer class
 	def backPass(self,forwDeriv): # return derivative of loss wrt input given the derivatives wrt the output
 		self.derivIn = np.zeros((self.inpSize,1)) # initialize derivatives
 		s = - self.out.dot(self.out.T)            
-		self.derivIn = s.dot(forwDeriv) + np.multiply(self.out,forwDeriv) # Derivatives calculated wrt inputs  (formula used is derived in report)
+		self.derivIn = s.dot(forwDeriv) + np.multiply(self.out,forwDeriv) # Derivatives calculated wrt inputs  (formula for derivative of softmax written in terms of the outputs of the softmax function)
 		return self.derivIn
 
 #-----------------------------------------Loss layer______________________________________________________________________#

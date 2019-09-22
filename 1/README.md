@@ -1,0 +1,2 @@
+Run the loadDataForCifar.py file in the folder where the CIFAR 10 dataset has been extracted.
+This would generate 10 .pkl files. Move them to the folder where mainF.py (FCNN code) and convNN.py (CNN code) are located and then run the two codes.

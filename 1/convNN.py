@@ -6,21 +6,30 @@ import matplotlib as mpl
 import pickle
 import tensorflow as tf
 
-numClasses = 2    			# number of classes to be classified
+numClasses = 5    			# number of classes to be classified
 trainSize = numClasses*4000 # number of datapoints to be trained
 validSize = numClasses*1000	# number of datapoints to be validated on
 testSize = numClasses*1000	# number of datapoints to be tested on
-numClasses = 2
-eta = 0.005 		# learning rate
-sizeLayer1 = 10     # layer 1 has weight matrix of dimensions sizeLayer1 X sizeLayer1
+eta = 0.0001 		# learning rate
+sizeLayer1 = 5    # layer 1 has weight matrix of dimensions sizeLayer1 X sizeLayer1
 sizeLayer2 = 5		# layer 2 has weight matrix of dimensions sizeLayer2 X sizeLayer2
 sizeLayer3 = 10		# layer 3 is fully connected layer with sizeLayer3 output neurons
-featLayer1 = 15		# number of features at the output of layer 1
-featLayer2 = 50		# number of features at the output of layer 2
-trainingSeries = np.matrix(np.load("../../cifar-10-batches-py/trainingSeries2.npy").astype('float32'))/255 # file containing all the training data points 
-testSeries = np.matrix(np.load("../../cifar-10-batches-py/testSeries2.npy").astype('float32'))/255 # file containing all the test data points
-trainingLabels = np.load("../../cifar-10-batches-py/trainingLabels2.npy") # labels corresponding to the training data points (one hot encoded)
-testLabels = np.load("../../cifar-10-batches-py/testLabels2.npy") # labels corresponding to the test data points (one hot encoded)
+featLayer1 = 20		# number of features at the output of layer 1
+featLayer2 = 40		# number of features at the output of layer 2
+if numClasses == 5: # if number of classes to be classified is 5
+	
+	trainingSeries = np.matrix(np.load("trainingSeries5.npy").astype('float32'))/255 # file containing all the training data points 
+	testSeries = np.matrix(np.load("testSeries5.npy").astype('float32'))/255 # file containing all the test data points
+	trainingLabels = np.load("trainingLabels5.npy") # labels corresponding to the training data points (one hot encoded)
+	testLabels = np.load("testLabels5.npy") # labels corresponding to the test data points (one hot encoded)
+
+else:    # if number of classes to be classified is 2
+
+	trainingSeries = np.matrix(np.load("trainingSeries2.npy").astype('float32'))/255 # file containing all the training data points 
+	testSeries = np.matrix(np.load("testSeries2.npy").astype('float32'))/255 # file containing all the test data points
+	trainingLabels = np.load("trainingLabels2.npy") # labels corresponding to the training data points (one hot encoded)
+	testLabels = np.load("testLabels2.npy") # labels corresponding to the test data points (one hot encoded)
+
 trainingLabels = trainingLabels[:,0:numClasses]
 testLabels = testLabels[:,0:numClasses]
 
@@ -81,23 +90,25 @@ batchSize = 20  # batch size while training
 numItr = int(trainSize/batchSize) # number of batches per epoch
 valCount = 0 # keeps track of the number of times consecutive validation accuracy differed by not more than 1%
 prevacc = 0 # store validation accuracy of previous epoch
-while valCount <= 3:
-	for i in range(numItr-1):
+epoch = 0
+while valCount <= 4:# loop till validation accuracy is same more than three times
+	for i in range(numItr-1): # loop over all batches
 		xB = trainingSeries[i*batchSize:(i+1)*batchSize,:] # training data points of current batch
 		yB = trainingLabels[i*batchSize:(i+1)*batchSize,:] # training data labels of current batch
-		feedDict1 = {inp:xB,expected:yB} # make dictionary out of the batch by placing the data points in inp and output labels in expected
+		feedDict1 = {inp:xB,expected:yB} # make dictionary out of the batch by placing the data points in "inp" and output labels in "expected"
 		sess.run(opt,feed_dict = feedDict1) # run optimizer over the batch to train the cnn
-		if i%100==0: # after every 100 batches do validation
-			xT = trainingSeries[trainSize:trainSize+1000,:] # validation data points
-			yT = trainingLabels[trainSize:trainSize+1000,:]	# validation data labels
-			feedDict2 = {inp:xT,expected:yT} 				# subsequent steps same as training
-			accu = 100*sess.run(acc,feed_dict=feedDict2)
-			print("batch "+str(i)+" - "+str(accu))
-			if abs(accu-prevacc) < 1:
-				valCount+=1
-			prevacc = accu
-			if valCount>=3: # break out of training loop if 3 consecutive rounds with same validation accuracy
-				break
+	# validate after each epoch
+	xT = trainingSeries[trainSize:trainSize+1000,:] # validation data points
+	yT = trainingLabels[trainSize:trainSize+1000,:]	# validation data labels
+	feedDict2 = {inp:xT,expected:yT} 				# subsequent steps same as training
+	accu = 100*sess.run(acc,feed_dict=feedDict2)
+	print("Epoch "+str(epoch)+" - "+str(accu))		# print accuracy over validation data for this epoch
+	if abs(accu-prevacc) < 1:  # increment valcount if validation accurcay within 1% of previous accuracy
+		valCount+=1
+	else:
+		valCount = 0           # reset valcount if validation accurcay NOT within 1% of previous accuracy
+	prevacc = accu
+	epoch += 1 # increment epoch number
 
 xTest = testSeries # Test the cnn on the testing data
 yTest = testLabels
