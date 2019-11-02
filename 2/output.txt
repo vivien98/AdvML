@@ -1,0 +1,39 @@
+Without RBM output :
+eta = 0.01
+lam = 0.01
+batch = 20
+
+Epoch 0
+validation accuracy 90.0
+Epoch 1
+validation accuracy 90.08
+Epoch 2
+validation accuracy 90.08
+Epoch 3
+validation accuracy 90.08
+Epoch 4
+validation accuracy 90.08
+Epoch 5
+validation accuracy 90.08
+Epoch 6
+validation accuracy 90.08
+final accuracy 89.18
+
+With RBM :
+
+
+Epoch 0
+validation accuracy 90.71
+Epoch 1
+validation accuracy 90.75
+Epoch 2
+validation accuracy 90.75
+Epoch 3
+validation accuracy 90.75
+Epoch 4
+validation accuracy 90.75
+Epoch 5
+validation accuracy 90.75
+Epoch 6
+validation accuracy 90.75
+final accuracy 90.24
