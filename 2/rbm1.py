@@ -48,7 +48,7 @@ class RBM:
 	def addInGrad(self,k,v0,vk,hArray):
 		probVecH0 = hArray[0,:].reshape(1,self.hiddenSize) #1/(1+np.exp(-(np.matmul(v0,self.weights)+self.hidBiases)))
 		probVecHk = hArray[k-1,:].reshape(1,self.hiddenSize)#1/(1+np.exp(-(np.matmul(vk,self.weights)+self.hidBiases)))
-		gradWeight = np.matmul(v0.T,probVecH0) - np.matmul(vk.T,probVecHk) 
+		gradWeight = np.matmul(v0.T,probVecH0) - np.matmul(vk.T,probVecHk)
 		gradVisBias = (v0 - vk)
 		gradHidBias = probVecH0 - probVecHk
 		return gradWeight,gradVisBias,gradHidBias

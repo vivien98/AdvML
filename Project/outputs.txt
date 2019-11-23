@@ -1,0 +1,28 @@
+For MNIST 2 layer attacker network without grad queries :
+
+Epoch 9 - Training loss: 1.6318188905715942
+Accuracy = 0.0981
+
+Epoch 99 - Training loss: 2.1593191623687744
+Accuracy = 0.2678
+
+Epoch 999 - Training loss: 0.060894981026649475
+Accuracy = 0.7171
+
+Epoch 9999 - Training loss: 0.024735502898693085
+Accuracy = 0.8238
+
+
+For MNIST 2 layer attacker network with grad queries :
+
+Epoch 9 - Training loss: 2.8287179470062256
+Accuracy = 0.1023
+
+Epoch 99 - Training loss: 2.4444000720977783
+Accuracy = 0.2978
+
+Epoch 999 - Training loss: 0.45706480741500854
+Accuracy = 0.8536
+
+Epoch 9999 - Training loss: 0.272945374250412
+Accuracy = 0.9167

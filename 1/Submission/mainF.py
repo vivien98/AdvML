@@ -17,7 +17,7 @@ testSeries = np.load("testSeries.npy")	# All testing data is loaded into this ar
 trainingSize = 4000	# Number of datapoints per label used in one epoch for training (out of 5000)
 validSize = 1000	# Number of datapoints per label used in one epoch for validation (out of 5000)
 testSize = 1000		# Number of datapoints per label used in one epoch for testing (out of 1000)
-numClasses = 5	# Number of classes to be trained over in CIFAR (out of 10)
+numClasses = 5		# Number of classes to be trained over in CIFAR (out of 10)
 
 lay1 = 3072			# Number of neurons in input layer
 lay2 = 70			# Number of neurons in first hidden layer

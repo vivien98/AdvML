@@ -79,13 +79,13 @@ for i in range(numt):
 	count[testExpected[i]] += 1
 	# #-----#
 	if testExpected[i] >=0 and testExpected[i] <=1:
-		testLabels2[cnt,int(testExpected[i])] = 1 
-		testSeries2[cnt]=testSeries[i]
+		testLabels2[cnt2,int(testExpected[i])] = 1 
+		testSeries2[cnt2]=testSeries[i]
 		cnt2+=1
 
 	if testExpected[i] >=0 and testExpected[i] <=4:
-		testLabels5[cnt,int(testExpected[i])] = 1 
-		testSeries5[cnt]=testSeries[i]
+		testLabels5[cnt5,int(testExpected[i])] = 1 
+		testSeries5[cnt5]=testSeries[i]
 		cnt5+=1
 
 
